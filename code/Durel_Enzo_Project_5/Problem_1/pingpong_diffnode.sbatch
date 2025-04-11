@@ -13,8 +13,8 @@
 #SBATCH --job-name=hw5prob1_diff
 #
 #SBATCH --chdir=/home/oucspdn025/ou_pdn_p5/code/Durel_Enzo_Project_5/Problem_1
-#SBATCH --output=/home/oucspdn025/ou_pdn_p5/code/Durel_Enzo_Project_5/Problem_1/_P5-1_diff_%J_stdout.txt
-#SBATCH --error=/home/oucspdn025/ou_pdn_p5/code/Durel_Enzo_Project_5/Problem_1/_P5-1_diff_%J_stderr.txt
+#SBATCH --output=/home/oucspdn025/ou_pdn_p5/code/Durel_Enzo_Project_5/Problem_1/results/diff_%J_stdout.txt
+#SBATCH --error=/home/oucspdn025/ou_pdn_p5/code/Durel_Enzo_Project_5/Problem_1/results/diff_%J_stderr.txt
 #
 #################################################
 
@@ -24,6 +24,8 @@ echo ""
 
 module load intel/2022.2
 module load OpenMPI/4.1.4-GCC-11.3.0
+
+make
 
 mpirun -n 2 ./pingpong_MPI 1000000 time_1M_diff.csv
 mpirun -n 2 ./pingpong_MPI 2000000 time_2M_diff.csv

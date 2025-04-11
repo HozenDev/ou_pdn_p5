@@ -1,0 +1,189 @@
+* Setup :ignore:
+
+#+SETUPFILE: ~/public/hozen-style/latex/hozen.setup
+
+# Ensure that we respect org mode new line
+# #+OPTIONS: \n:t
+
+# To disbale _ and ^ behaviour but keep ^{} and _{}
+#+OPTIONS: ^:{}
+
+#+LATEX_HEADER: \usepackage[linesnumbered]{algorithm2e}
+#+LATEX_HEADER: \usepackage{tikz}
+#+LATEX_HEADER: \setlength{\parindent}{0pt}
+
+* Page de garde :ignore:
+** Informations :ignore:
+
+#+AUTHOR: Author: Enzo Durel
+#+AUTHOR: \newline
+#+AUTHOR: Professor: Dr. Chongle Pan
+#+EMAIL: /
+#+TITLE: CS5473 - Project 5
+#+OPTIONS: toc:nil
+
+** Logo :ignore:
+
+#+ATTR_LATEX: :width 10cm :align left
+[[file:~/orgmode_latex_export_img/ou_logo.png]]
+
+** newpage :noexport:
+
+#+begin_export latex
+\newpage
+#+end_export
+
+** Table des matières :ignore:
+
+#+LATEX: \thispagestyle{empty}
+#+TOC: headlines 2
+#+LATEX: \clearpage
+#+LATEX: \pagenumbering{arabic} 
+
+** Liste des figures :ignore:
+
+#+begin_export latex
+\thispagestyle{empty}
+\listoffigures
+\clearpage
+\pagenumbering{arabic} 
+#+end_export
+
+** Liste des algorithmes :noexport:
+
+#+begin_export latex
+\thispagestyle{empty}
+\listofalgorithms
+\clearpage
+\pagenumbering{arabic} 
+#+end_export
+
+** List of tables :ignore:
+
+#+begin_export latex
+\thispagestyle{empty}
+\listoftables
+\clearpage
+\pagenumbering{arabic} 
+#+end_export
+
+** newpage :ignore:
+
+#+begin_export latex
+\newpage
+#+end_export
+
+* Problem 1
+** Runtimes
+
+#+CAPTION: Problem 1 Runtime
+#+ATTR_LATEX: :align |l|c|c|c|c|
+|----------+--------------+--------------+--------------+--------------|
+| Integers |           1M |           2M |           4M |           8M |
+|----------+--------------+--------------+--------------+--------------|
+| Same RT  | 0.0002394965 | 0.0004862981 | 0.0012506239 | 0.0032828204 |
+|----------+--------------+--------------+--------------+--------------|
+| Diff RT  | 0.0004300362 | 0.0008670914 | 0.0017082404 | 0.0039351337 |
+|----------+--------------+--------------+--------------+--------------|
+
+** Same Node
+
+- Latency $\approx -3.488867e-04 s$
+- Bandwidth $\approx 9016.07 MB/s$
+
+** Diff Node
+
+- Latency $\approx -1.498357e-04 s$
+- Bandwidth $\approx 7957.72 MB/s$
+
+** Linear Regression
+
+#+CAPTION: Linear Regression for same
+#+ATTR_LATEX: :width 10cm :float nil
+file:./img/pingpong_same_plot.png
+
+#+CAPTION: Linear Regression for diff
+#+ATTR_LATEX: :width 10cm :float nil
+file:./img/pingpong_diff_plot.png
+
+#+CAPTION: Linear Regression for both methods
+#+ATTR_LATEX: :width 10cm :float nil
+file:./img/pingpong_communication_plot.png
+
+** newpage :ignore:
+
+#+begin_src latex
+  \newpage
+#+end_src
+
+* Problem 2
+
+
+
+** Wall-clock Time Table
+
+#+CAPTION: Problem 2 Wall-clock Time Table
+#+ATTR_LATEX: :align |l|c|c|c|
+|-------------+-------------+-------------+-------------|
+| Array size  |      262144 |      524288 |     1048576 |
+|-------------+-------------+-------------+-------------|
+| serial      | 0.000902495 | 0.001672294 | 0.003332579 |
+|-------------+-------------+-------------+-------------|
+| 2 processes |    0.002470 |    0.005453 |    0.008972 |
+|-------------+-------------+-------------+-------------|
+| 4 processes |    0.003374 |    0.004037 |    0.008923 |
+|-------------+-------------+-------------+-------------|
+| 8 processes |    0.003583 |    0.003975 |    0.008298 |
+|-------------+-------------+-------------+-------------|
+
+** Speedup
+
+#+CAPTION: Problem 2 Speedup Table
+#+ATTR_LATEX: :align |l|c|c|c|
+|-------------+--------+--------+---------|
+| Array size  | 262144 | 524288 | 1048576 |
+|-------------+--------+--------+---------|
+| 2 processes | 0.3652 | 0.3067 |  0.3714 |
+|-------------+--------+--------+---------|
+| 4 processes | 0.2673 | 0.4143 |  0.3733 |
+|-------------+--------+--------+---------|
+| 8 processes | 0.2518 | 0.4205 |  0.4016 |
+|-------------+--------+--------+---------|
+
+** Efficiency
+
+#+CAPTION: Problem 2 Efficiency Table
+#+ATTR_LATEX: :align |l|c|c|c|
+|-------------+--------+--------+---------|
+| Array size  | 262144 | 524288 | 1048576 |
+|-------------+--------+--------+---------|
+| 2 processes | 0.1826 | 0.1534 |  0.1857 |
+|-------------+--------+--------+---------|
+| 4 processes | 0.0668 | 0.1036 |  0.0933 |
+|-------------+--------+--------+---------|
+| 8 processes | 0.0315 | 0.0526 |  0.0502 |
+|-------------+--------+--------+---------|
+
+Speedup is sub-linear due to communication overhead in MPI. Efficiency drops with increasing process count. With 8 processes and 218218 elements, we've got around 3% efficiency, which suggests that parallel overhead dominates the computation.
+
+The program shows poor scalability especially for small vector sizes. An MPI limitation here is, for lightweight computations, the communication overhead quickly outweighs parallel benefits. Scalability improves slightly with larger input sizes but remains insufficient.
+
+** newpage :ignore:
+
+#+begin_src latex
+  \newpage
+#+end_src
+
+* Problem 3
+
+
+
+** newpage :ignore:
+
+#+begin_src latex
+  \newpage
+#+end_src
+
+* Problem 4
+
+
