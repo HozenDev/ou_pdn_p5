@@ -16,18 +16,18 @@
 !/code/*_Project_?/*.py
 
 # Don't ignore problem folders
-!/code/Durel_Enzo_Project_?/Problem_?
-/code/Durel_Enzo_Project_?/Problem_?/*
-!/code/Durel_Enzo_Project_?/Problem_?/*.c
-!/code/Durel_Enzo_Project_?/Problem_?/*.sbatch
-!/code/Durel_Enzo_Project_?/Problem_?/Makefile
+!/code/*_Project_?/Problem_?
+/code/*_Project_?/Problem_?/*
+!/code/*_Project_?/Problem_?/*.c
+!/code/*_Project_?/Problem_?/*.sbatch
+!/code/*_Project_?/Problem_?/Makefile
 
 # Don't ignore serial folder in certain problem
-!/code/Durel_Enzo_Project_?/Problem_?/serial
-/code/Durel_Enzo_Project_?/Problem_?/serial/*
-!/code/Durel_Enzo_Project_?/Problem_?/serial/*.c
-!/code/Durel_Enzo_Project_?/Problem_?/serial/Makefile
-!/code/Durel_Enzo_Project_?/Problem_?/serial/*.sbatch
+!/code/*_Project_?/Problem_?/serial
+/code/*_Project_?/Problem_?/serial/*
+!/code/*_Project_?/Problem_?/serial/*.c
+!/code/*_Project_?/Problem_?/serial/Makefile
+!/code/*_Project_?/Problem_?/serial/*.sbatch
 
 # Don't ignore test data
 !/code/test_data
