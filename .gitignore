@@ -4,22 +4,39 @@
 
 !/readme.org
 
+# Don't ignore code
 !/code
 /code/*
 !/code/*.docx
 !/code/*.py
 
-!/code/Durel_Enzo_Project_?
-/code/Durel_Enzo_Project_?/*
-!/code/Durel_Enzo_Project_?/*.py
+# Don't ignore project folder
+!/code/*_Project_?
+/code/*_Project_?/*
+!/code/*_Project_?/*.py
 
+# Don't ignore problem folders
 !/code/Durel_Enzo_Project_?/Problem_?
 /code/Durel_Enzo_Project_?/Problem_?/*
 !/code/Durel_Enzo_Project_?/Problem_?/*.c
 !/code/Durel_Enzo_Project_?/Problem_?/*.sbatch
 !/code/Durel_Enzo_Project_?/Problem_?/Makefile
 
+# Don't ignore serial folder in certain problem
+!/code/Durel_Enzo_Project_?/Problem_?/serial
+/code/Durel_Enzo_Project_?/Problem_?/serial/*
+!/code/Durel_Enzo_Project_?/Problem_?/serial/*.c
+!/code/Durel_Enzo_Project_?/Problem_?/serial/Makefile
+!/code/Durel_Enzo_Project_?/Problem_?/serial/*.sbatch
+
+# Don't ignore test data
 !/code/test_data
 
+# Don't ignore report
 !/report
+/report/*
+!/report/*.pdf
+!/report/*.org
+
+# Don't ignore results
 !/results
