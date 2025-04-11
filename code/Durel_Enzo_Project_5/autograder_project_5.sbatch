@@ -10,15 +10,14 @@
 #SBATCH --time=00:15:00
 #SBATCH --job-name=p5_test
 #
-#
 # --------------------- Change the items below here! ---------------------
 #
-#SBATCH --mail-user=youremail@ou.edu
+#SBATCH --mail-user=Enzo.B.Durel-1@ou.edu
 #SBATCH --mail-type=ALL
 #
-#SBATCH --chdir=/home/oucspdnta/current/ta_only/Autograding/testing/Project_5/BrandtParker_Project_5/
-#SBATCH --output=/home/oucspdnta/current/ta_only/Autograding/testing/Project_5/BrandtParker_Project_5/output/autograding_%J_stdout.txt
-#SBATCH --error=/home/oucspdnta/current/ta_only/Autograding/testing/Project_5/BrandtParker_Project_5/output/autograding_%J_stderr.txt
+#SBATCH --chdir=/home/oucspdn025/ou_pdn_p5/code/Durel_Enzo_Project_5/
+#SBATCH --output=/home/oucspdn025/ou_pdn_p5/code/Durel_Enzo_Project_5/autograder_%J_stdout.txt
+#SBATCH --error=/home/oucspdn025/ou_pdn_p5/code/Durel_Enzo_Project_5/autograder_%J_stderr.txt
 
 #################################################
 
@@ -29,7 +28,7 @@ module load OpenMPI/4.1.4-GCC-11.3.0
 module load intel/2022.2
 
 # To run all the problems and get all results
-# python3 -u autograder_project_5.py
+python3 -u autograder_project_5.py
 
 # To run just problem 2's autograder
 # python3 -u autograder_problem_5_2.py
