@@ -27,6 +27,7 @@ module load OpenMPI/4.1.4-GCC-11.3.0
 
 make
 
+mpirun -n 1 ./pi_MPI result_1p.csv time_1p.csv
 mpirun -n 2 ./pi_MPI result_2p.csv time_2p.csv
 mpirun -n 4 ./pi_MPI result_4p.csv time_4p.csv
 mpirun -n 8 ./pi_MPI result_8p.csv time_8p.csv
