@@ -163,7 +163,7 @@ file:./img/pingpong_communication_plot.png
 
 ** Discussion
 
-Speedup is sub-linear due to communication overhead in MPI. Efficiency drops with increasing process count. With 8 processes and 218218 elements, we've got around 3% efficiency, which suggests that parallel overhead dominates the computation.
+Speedup is sub-linear due to communication overhead in MPI. Efficiency drops with increasing process count. With 8 processes and 262144 elements, we've got around 3% efficiency, which suggests that parallel overhead dominates the computation.
 
 The program shows poor scalability especially for small vector sizes. An MPI limitation here is, for lightweight computations, the communication overhead quickly outweighs parallel benefits. Scalability improves slightly with larger input sizes but remains insufficient.
 
@@ -223,33 +223,34 @@ Performance drops on different nodes, see in timing and efficiency metrics. This
 ** Runtimes
 
 #+CAPTION: Problem 4 Runtimes
-#+ATTR_LATEX: :align |l|c|c|c|c|
-|------------+----------+----------+----------+----------|
-| Array size |        2 |        4 |        8 |       16 |
-|------------+----------+----------+----------+----------|
-| Runtime    | 0.001346 | 0.000728 | 0.000595 | 0.000235 |
-|------------+----------+----------+----------+----------|
+#+ATTR_LATEX: :align |l|c|c|c|c|c|
+|------------+----------+----------+----------+----------+----------|
+| Array size |        1 |        2 |        4 |        8 |       16 |
+|------------+----------+----------+----------+----------+----------|
+| Runtime    | 0.002640 | 0.001349 | 0.000798 | 0.000388 | 0.000290 |
+|------------+----------+----------+----------+----------+----------|
 
 ** Speedup
 
-#+CAPTION: Problem 4 Speedup Table
-#+ATTR_LATEX: :align |l|c|c|c|c|
-|-----------+-------+-------+-------+-------|
-| Processes |     2 |     4 |     8 |    16 |
-|-----------+-------+-------+-------+-------|
-| Speedup   | 1.000 | 1.848 | 2.262 | 5.728 |
-|-----------+-------+-------+-------+-------|
+#+CAPTION: Problem 4 Speedup
+#+ATTR_LATEX: :align |l|c|c|c|c|c|
+|-----------+--------+--------+--------+--------+--------|
+| Processes |      1 |      2 |      4 |      8 |     16 |
+|-----------+--------+--------+--------+--------+--------|
+| Speedup   | 1.0000 | 1.9570 | 3.3075 | 6.8041 | 9.1034 |
+|-----------+--------+--------+--------+--------+--------|
 
 ** Efficiency
 
-#+CAPTION: Problem 4 Efficiency Table
-#+ATTR_LATEX: :align |l|c|c|c|c|
-|------------+---------+---------+---------+---------|
-| Processes  |       2 |       4 |       8 |      16 |
-|------------+---------+---------+---------+---------|
-| Efficiency |   0.500 |   0.462 |   0.283 |   0.358 |
-|------------+---------+---------+---------+---------|
+#+CAPTION: Problem 4 Efficiency
+#+ATTR_LATEX: :align |l|c|c|c|c|c|
+|------------+-------+-------+-------+-------+-------|
+| Processes  |     1 |     2 |     4 |     8 |    16 |
+|------------+-------+-------+-------+-------+-------|
+| Efficiency | 1.000 | 0.978 | 0.827 | 0.850 | 0.569 |
+|------------+-------+-------+-------+-------+-------|
 
 ** Discussion
 
+The Monte Carlo pi estimation program in strongly scalable. There is small communication overhead, pracitcal speedup around the theorical speedup and a high efficiency.
 

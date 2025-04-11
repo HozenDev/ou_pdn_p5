@@ -13,7 +13,7 @@
 # Don't ignore project folder
 !/code/*_Project_?
 /code/*_Project_?/*
-!/code/*_Project_?/*.py
+!/code/*_Project_?/autograder*
 
 # Don't ignore problem folders
 !/code/*_Project_?/Problem_?
