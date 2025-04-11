@@ -117,9 +117,6 @@ file:./img/pingpong_communication_plot.png
 #+end_src
 
 * Problem 2
-
-
-
 ** Wall-clock Time Table
 
 #+CAPTION: Problem 2 Wall-clock Time Table
@@ -164,6 +161,8 @@ file:./img/pingpong_communication_plot.png
 | 8 processes | 0.0315 | 0.0526 |  0.0502 |
 |-------------+--------+--------+---------|
 
+** Discussion
+
 Speedup is sub-linear due to communication overhead in MPI. Efficiency drops with increasing process count. With 8 processes and 218218 elements, we've got around 3% efficiency, which suggests that parallel overhead dominates the computation.
 
 The program shows poor scalability especially for small vector sizes. An MPI limitation here is, for lightweight computations, the communication overhead quickly outweighs parallel benefits. Scalability improves slightly with larger input sizes but remains insufficient.
@@ -175,8 +174,43 @@ The program shows poor scalability especially for small vector sizes. An MPI lim
 #+end_src
 
 * Problem 3
+** Runtimes
 
+#+CAPTION: Problem 3 Runtimes
+#+ATTR_LATEX: :align |l|c|c|c|
+|----------------------------------+----------+----------+----------|
+| Array size                       |   262144 |   524288 |  1048576 |
+|----------------------------------+----------+----------+----------|
+| 4 processes on the same node     | 0.019300 | 0.040307 | 0.084053 |
+|----------------------------------+----------+----------+----------|
+| 4 processes on 4 different nodes | 0.026653 | 0.042971 | 0.112452 |
+|----------------------------------+----------+----------+----------|
 
+** Speedup
+
+#+CAPTION: Problem 3 Speedup
+#+ATTR_LATEX: :align |l|c|c|c|
+|----------------------+--------+--------+---------|
+| Array size           | 262144 | 524288 | 1048576 |
+|----------------------+--------+--------+---------|
+| Diff vs Same Speedup | 0.7245 | 0.9370 |  0.7474 |
+|----------------------+--------+--------+---------|
+
+** Efficiency
+
+#+CAPTION: Problem 3 Efficiency
+#+ATTR_LATEX: :align |l|c|c|c|
+|----------------------------+--------+--------+---------|
+| Array size                 | 262144 | 524288 | 1048576 |
+|----------------------------+--------+--------+---------|
+| Efficiency (Diff Node, /4) | 0.1811 | 0.2343 |  0.1868 |
+|----------------------------+--------+--------+---------|
+
+** Discussion
+
+MPI Merge Sort shows better scalability on the same node due to reduced communication latency and faster memory access.
+
+Performance drops on different nodes, see in timing and efficiency metrics. This aligns with the other problems results, meaning that distributed-node latency and bandwidth penalty strongly algorithms. Moreover, merge sort algorithm has a significant data exchange.
 
 ** newpage :ignore:
 
@@ -185,5 +219,13 @@ The program shows poor scalability especially for small vector sizes. An MPI lim
 #+end_src
 
 * Problem 4
+
+#+CAPTION: Problem 4 Runtimes
+#+ATTR_LATEX: :align |l|c|c|c|c|
+|------------+---+---+---+----|
+| Array size | 2 | 4 | 8 | 16 |
+|------------+---+---+---+----|
+| Runtime    |   |   |   |    |
+|------------+---+---+---+----|
 
 
