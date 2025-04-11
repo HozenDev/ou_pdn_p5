@@ -31,5 +31,5 @@ module load OpenMPI/4.1.4-GCC-11.3.0
 make
 
 mpirun -n 4 ./merge_sort_MPI 262144 $VEC_1_18_INPUT result_3_diff_18.csv time_3_diff_18.csv
-mpirun -n 4 ./merge_sort_MPI 262144 $VEC_1_19_INPUT result_3_diff_19.csv time_3_diff_19.csv
-mpirun -n 4 ./merge_sort_MPI 262144 $VEC_1_20_INPUT result_3_diff_20.csv time_3_diff_20.csv
+mpirun -n 4 ./merge_sort_MPI 524288 $VEC_1_19_INPUT result_3_diff_19.csv time_3_diff_19.csv
+mpirun -n 4 ./merge_sort_MPI 1048576 $VEC_1_20_INPUT result_3_diff_20.csv time_3_diff_20.csv
