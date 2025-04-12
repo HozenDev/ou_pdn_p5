@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --partition=oucspdn_cpu
-#SBATCH --ntasks-per-node=2
-#SBATCH --ntasks=2
+#SBATCH --ntasks-per-node=4
+#SBATCH --ntasks=4
 #
 #SBATCH --time=00:15:00
 #
@@ -34,6 +34,6 @@ module load OpenMPI/4.1.4-GCC-11.3.0
 
 make
 
-mpirun -n 2 ./dot_product_MPI 262144 $VEC_1_18_INPUT $VEC_2_18_INPUT result_2p_18.csv time_2p_18.csv
-mpirun -n 2 ./dot_product_MPI 524288 $VEC_1_19_INPUT $VEC_2_19_INPUT result_2p_19.csv time_2p_19.csv
-mpirun -n 2 ./dot_product_MPI 1048576 $VEC_1_20_INPUT $VEC_2_20_INPUT result_2p_20.csv time_2p_20.csv
+mpirun -n 4 ./dot_product_MPI 262144 $VEC_1_18_INPUT $VEC_2_18_INPUT result_4p_18.csv time_4p_18.csv
+mpirun -n 4 ./dot_product_MPI 524288 $VEC_1_19_INPUT $VEC_2_19_INPUT result_4p_19.csv time_4p_19.csv
+mpirun -n 4 ./dot_product_MPI 1048576 $VEC_1_20_INPUT $VEC_2_20_INPUT result_4p_20.csv time_4p_20.csv
